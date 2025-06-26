@@ -83,7 +83,7 @@ pub fn configure_with(
     dp.RCC.ahb2enr.modify(|_, w| w.sram3en().set_bit());
 
     // configure ccdr using provided function
-    let pwrcfg = pwr.smps().vos0(syscfg).freeze();
+    let pwrcfg = pwr.vos0(syscfg).freeze();
     let ccdr = function(pwrcfg, rcc, syscfg);
 
     // enable itm if the feature is selected
